@@ -26,7 +26,7 @@ The below example covers some settings for a DFS-N root consolidation scenario w
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cluster -> This is the cluster service (E.g. hostname DFS-Cluster.contoso.com, ip 10.0.0.6)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run powershell in one of your DFS nodes “Get-ClusterResource $IPResourceName | Get-ClusterParameter” to make sure you have the cluster up and running.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run the powershell command in one of your DFS nodes “Get-ClusterResource $IPResourceName | Get-ClusterParameter” to make sure you have the cluster up and running.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now the cluster must be ready to listen on port 59999. This step is needed for setting up the Load Balancer probe. Copy the following PowerShell script:
 
