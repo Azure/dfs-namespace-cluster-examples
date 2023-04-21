@@ -1,3 +1,5 @@
+If you want to know more about solution ideas for DFS Cluster on Azure, check [this article](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/dfs-failover-cluster-vms).
+
 ## Example of implementation
 
 The below example covers some settings for a DFS-N root consolidation scenario where there’s a requirement of maintaining UNC paths while migrating to Azure. (E.g. \\\oldserver\folder1 must be kept)
