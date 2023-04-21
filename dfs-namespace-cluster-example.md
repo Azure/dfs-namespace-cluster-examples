@@ -7,7 +7,7 @@ The below example covers some settings for a DFS-N root consolidation scenario w
 
 
 
-1. Setup 2 servers with DFS-N roles and create in each of them the namespace Stand-alone \\\DFS-A\oldserver# and \\\DFS-B\oldserver# with both targeting the root folders pointing to \\newapplicance\folder1. Keeping the old UNC paths can make it complex depending on the amount of shares.
+1. Setup 2 servers with DFS-N roles and create in each of them the namespace Stand-alone \\\DFS-A\oldserver# and \\\DFS-B\oldserver# with both targeting the root folders pointing to \\\newapplicance\folder1. Keeping the old UNC paths can make it complex depending on the amount of shares.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some guidelines can be found in the following link: [Use DFS-N and DFS Root Consolidation with Azure NetApp Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files?tabs=windows-gui)
 
