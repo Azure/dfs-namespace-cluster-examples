@@ -16,8 +16,7 @@ The below example covers some settings for a DFS-N root consolidation scenario w
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test if both servers can be used to connect to the target folders individually. The next step will provide cluster details.\
 <br>
 
-2. Setup the Windows Failover Cluster 
-The following link has good information for this part: [Deploying DFS Replication on a Windows Failover Cluster](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deploying-dfs-replication-on-a-windows-failover-cluster-amp-8211/ba-p/423913)
+2. Setup the Windows Failover Cluster. The following link has good information for this part: [Deploying DFS Replication on a Windows Failover Cluster](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deploying-dfs-replication-on-a-windows-failover-cluster-amp-8211/ba-p/423913)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At the end of this step, you will have 3 main network components:
 
