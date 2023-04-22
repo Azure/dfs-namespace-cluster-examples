@@ -1,18 +1,18 @@
-# Maintaining UNC paths on DFS clusters in Azure
+# Implementing DFS-N cluster in Azure
 
-When [Deploy a DFS Namespaces failover cluster](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/dfs-failover-cluster-vms) in Azure, sometimes you as part of your DFS-N root consolidation scenario you require maintaining UNC paths, for example **\\\oldserver\folder1**. This guide will show how to accomplish that.
+While migrating your file system to Azure, you may require maintaining UNC paths. That will require DFS-N root consolidation and the following example below can guide you. Also, more info can be found at [Deploy a DFS Namespaces failover cluster](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/dfs-failover-cluster-vms).
 
 ![Diagram that shows an example of a DFS Namespaces failover cluster.](./media/DFS-N_cluster_example.png)
 
 ## Guide
 
-1. In a test environment, set up two servers with DFS-N roles and create in each of them the namespace Stand-alone **\\\DFS-A\oldserver#** and **\\\DFS-B\oldserver#** with both targeting the root folders pointing to **\\\newapplicance\folder1**. Keeping the old UNC paths can make it complex depending on the amount of shares.
+1. In a test environment, set up two servers with DFS-N roles and create in each of them the namespace Stand-alone **\\\DFS-A\oldserver#** and **\\\DFS-B\oldserver#** with both targeting folders pointing to **\\\newapplicance\folder1**. Keeping the old UNC paths can make it complex depending on the amount of shares.
 
    Some additional guidelines can be found in [Use DFS-N and DFS Root Consolidation with Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files)
 
 1. Make sure you have a DNS entry for the root target.
 
-1. Test if both servers can be used to connect to the target folders individually. The next step will provide cluster details.
+1. Test if both servers can be used to connect to the target folders individually using the \\\oldserver alias. The next step will provide cluster details.
 
 1. Set up the Windows Failover Cluster. You can follow the guide at [Deploying DFS Replication on a Windows Failover Cluster](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deploying-dfs-replication-on-a-windows-failover-cluster-amp-8211/ba-p/423913), if needed.
 
@@ -20,7 +20,7 @@ When [Deploy a DFS Namespaces failover cluster](https://learn.microsoft.com/azur
 
    - DFS-A -> This is the node A of your cluster (E.g. hostname DFS-server-A.contoso.com, IP 10.0.0.4)
    - DFS-B -> This is the node B of your cluster (E.g. hostname DFS-server-B.contoso.com, IP 10.0.0.5)
-   - Cluster -> This is the cluster service (E.g. hostname DFS-Cluster.contoso.com, IP 10.0.0.6)
+   - Cluster -> This is the cluster service (E.g. hostname DFS-Cluster.contoso.com, IP 10.0.0.6)<br>
 
 1. Run the powershell command in one of your DFS nodes `Get-ClusterResource $IPResourceName | Get-ClusterParameter` to make sure you have the cluster up and running.
 
@@ -38,7 +38,7 @@ When [Deploy a DFS Namespaces failover cluster](https://learn.microsoft.com/azur
 
    More information about the above script can be found at [Configure a load balancer & availability group listener](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure?view=azuresql)
 
-1. Setup the Azure Load Balancer.
+1. Setup the Azure Load Balancer (Standard sku recommended).
 
    - The FrontEnd IP should be static and have the same IP as the cluster. (E.g. 10.0.0.6)
    - The Backend pool should have the two nodes. (E.g. DFS-A and DFS-B)
