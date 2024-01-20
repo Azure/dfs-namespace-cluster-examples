@@ -6,7 +6,7 @@ While migrating your file system to Azure, you may require maintaining UNC paths
 
 ## Guide
 
-1. In a test environment, set up two servers with DFS-N roles and create in each of them the namespace Stand-alone **\\\DFS-A\oldserver#** and **\\\DFS-B\oldserver#** with both targeting folders pointing to **\\\newapplicance\folder1**. Keeping the old UNC paths can make it complex depending on the amount of shares.
+1. In a test environment, set up two servers with DFS-N roles and create in each of them the namespace Stand-alone **\\\DFS-A\#oldserver** and **\\\DFS-B\#oldserver** with both targeting folders pointing to **\\\newapplicance\folder1**. Keeping the old UNC paths can make it complex depending on the amount of shares.
 
    Some additional guidelines can be found in [Use DFS-N and DFS Root Consolidation with Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files)
 
